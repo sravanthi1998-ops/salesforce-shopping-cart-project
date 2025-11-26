@@ -1,0 +1,58 @@
+<template>
+    <lightning-card title="Shopping Cart" icon-name="utility:cart">
+        <div class="slds-p-around_small">
+
+            <template if:true={items.length}>
+                
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <template for:each={items} for:item="item">
+                            <tr key={item.lineItemId}>
+                                <td>{item.productName}</td>
+                                <td>${item.unitPrice}</td>
+                                <td>{item.quantity}</td>
+                                <td>${item.lineTotal}</td>
+                                <td>
+                                    <lightning-button
+                                        label="Remove"
+                                        variant="destructive"
+                                        data-id={item.lineItemId}
+                                        onclick={handleRemove}>
+                                    </lightning-button>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+
+                <div class="slds-m-top_small slds-text-align_right slds-text-heading_small">
+                    <strong>Total:</strong> ${cart.cartTotal}
+                </div>
+
+                <div class="slds-m-top_small slds-align_absolute-center">
+                    <lightning-button 
+                        variant="brand"
+                        label="Submit Order"
+                        onclick={handleSubmitOrder}>
+                    </lightning-button>
+                </div>
+
+            </template>
+
+            <template if:false={items.length}>
+                <p class="slds-text-body_small">Cart is empty.</p>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

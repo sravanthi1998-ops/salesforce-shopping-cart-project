@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Message channel for shopping cart updates</description>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <fieldName>accountId</fieldName>
+        <description>Account Id whose cart was updated</description>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>opportunityId</fieldName>
+        <description>Open cart Opportunity Id</description>
+    </lightningMessageFields>
+    <masterLabel>Cart Message Channel</masterLabel>
+</LightningMessageChannel>

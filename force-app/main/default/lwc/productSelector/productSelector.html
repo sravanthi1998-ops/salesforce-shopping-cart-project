@@ -1,3 +1,25 @@
 <template>
-    
+    <lightning-card title="Products" icon-name="utility:cart">
+
+        <div class="slds-p-around_small">
+            <lightning-datatable
+                key-field="id"
+                data={data}
+                columns={columns}
+                draft-values={draftValues} 
+                oncellchange={handleCellChange}
+                onsave={handleCellChange}
+                onrowselection={handleRowSelection}>
+            </lightning-datatable>
+
+            <div class="slds-m-top_small slds-align_absolute-center">
+                <lightning-button 
+                    variant="brand"
+                    label="Add to Cart"
+                    onclick={handleAddToCart}>
+                </lightning-button>
+            </div>
+        </div>
+
+    </lightning-card>
 </template>
